@@ -9,20 +9,6 @@ This is a simple event management system built using raw PHP and MySQL.
 - Search and filter events
 - Register for events
 
-# Default Credentials
-
-After setting up the database, you can use the following default credentials to log in:
-
-### Admin Account
-
-- **Email:** `admin@example.com`
-- **Password:** `admin123`
-
-### User Account
-
-- **Email:** `user@example.com`
-- **Password:** `user123`
-
 ## Installation
 
 ### Using XAMPP
@@ -44,3 +30,17 @@ After setting up the database, you can use the following default credentials to 
    ```sh
    cd C:\laragon\www\myproject
    ```
+
+# Default Credentials
+
+After setting up the database, you can use the following default credentials to log in:
+
+### Admin Account
+
+- **Email:** `admin@admin.com`
+- **Password:** `123`
+
+### User Account
+
+- **Email:** `user@gmail.com`
+- **Password:** `12345`
