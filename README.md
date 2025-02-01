@@ -42,6 +42,18 @@ $password = ""; // Default Laragon/XAMPP MySQL password (empty)
 $database = "event_management";
 ```
 
+## Configure the Config File
+
+Open `includes/config.php` and update the following settings:
+
+You have to define the base url here. In my case I have used Laragon and my I set my base url like below:
+
+```php
+<?php
+ define('BASE_URL', 'http://project.test/');
+?>
+```
+
 # Default Credentials
 
 After setting up the database, you can use the following default credentials to log in:
