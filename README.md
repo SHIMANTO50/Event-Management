@@ -5,9 +5,13 @@ This is a simple event management system built using raw PHP and MySQL.
 ## Features
 
 - User authentication (login/logout)
-- Create, edit, and delete events
+- User can Create, edit, and delete events
+- Event listing with search functionality
+- Pagination for event listings
 - Search and filter events
-- Register for events
+- Register for events with limited capacity
+- After Login Admin redirect to the admin dashboard
+- Admin can download attendee lists for specific events in CSV format
 
 ## Installation
 
