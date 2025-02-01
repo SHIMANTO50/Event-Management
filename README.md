@@ -21,6 +21,17 @@ This is a simple event management system built using raw PHP and MySQL.
    - Create a new database (e.g., `events_db`).
    - Import the provided `.sql` file.
 
+## Configure the Database Connection
+
+Open `includes/db.php` and update the following settings:
+
+````php
+$host = "localhost";
+$user = "root"; // Default Laragon/XAMPP MySQL user
+$password = ""; // Default Laragon/XAMPP MySQL password (empty)
+$database = "event_management";
+
+
 ### Using Laragon
 
 1. Download and install [Laragon](https://laragon.org/).
@@ -29,7 +40,18 @@ This is a simple event management system built using raw PHP and MySQL.
 4. Open a terminal in Laragon and run:
    ```sh
    cd C:\laragon\www\myproject
-   ```
+````
+
+## Configure the Database Connection
+
+Open `includes/db.php` and update the following settings:
+
+```php
+$host = "localhost";
+$user = "root"; // Default Laragon/XAMPP MySQL user
+$password = ""; // Default Laragon/XAMPP MySQL password (empty)
+$database = "event_management";
+
 
 # Default Credentials
 
@@ -44,3 +66,4 @@ After setting up the database, you can use the following default credentials to 
 
 - **Email:** `user@gmail.com`
 - **Password:** `12345`
+```
