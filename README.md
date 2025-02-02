@@ -8,8 +8,6 @@ Live Link: https://tanjimul.xyz/
 
 # Default Credentials
 
-After setting up the database, you can use the following default credentials to log in:
-
 ### Admin Account
 
 - **Email:** `admin@admin.com`
