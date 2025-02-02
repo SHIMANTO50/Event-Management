@@ -16,13 +16,10 @@ try {
         throw new Exception("Database Connection Failed: " . $conn->connect_error);
     }
 
-    // Connection successful
-    //echo "Database connected successfully.";
 } catch (Exception $e) {
-    // Log the error (optional)
+    
     error_log($e->getMessage());
 
-    // Display a user-friendly error message
     die("Error: Unable to connect to the database. Please try again later.");
 }
 ?>

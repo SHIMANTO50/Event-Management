@@ -89,50 +89,57 @@ include '../includes/config.php';
     </div>
 
     <div class="content">
-        <h1 class="mb-4">Event Reports</h1>
-        
-        <!-- Search Input -->
-        <input type="text" id="search" class="form-control mb-3" placeholder="Search by event or attendee name...">
+        <h1 class="mb-3">Available Events And Report Download</h1>
+        <!-- Error Message Handling -->
+        <?php
+        if (isset($_SESSION['error'])) {
+            echo '<div class="alert alert-danger" id="error-message">' . $_SESSION['error'] . '</div>';
+            unset($_SESSION['error']); // Clear the message after displaying
+        }
+        ?>
 
-        <!-- Download Report -->
-        <a href="download_reports.php" class="btn btn-primary mt-2 mb-2">Download CSV</a>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Event Name</th>
+                    <th>Date</th>
+                    <th>Attendees</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                $query = 'SELECT * FROM events ORDER BY created_at DESC'; 
+                $result = mysqli_query($conn, $query);
+                
+                while ($row = mysqli_fetch_assoc($result)) {
+                    echo '<tr>';
+                    echo "<td>{$row['name']}</td>";
+                    echo "<td>{$row['description']}</td>";
+                
+                    // Count attendees
+                    $event_id = $row['id'];
+                    $attendee_query = "SELECT COUNT(*) as total FROM attendees WHERE event_id = $event_id";
+                    $attendee_result = mysqli_query($conn, $attendee_query);
+                    $attendee_data = mysqli_fetch_assoc($attendee_result);
+                    echo "<td>{$attendee_data['total']} Attendees</td>";
+                
+                    // Download button for each event
+                    echo "<td><a href='download_event_attendees.php?event_id={$event_id}' class='btn btn-success btn-sm'>Download Report</a></td>";
+                    echo '</tr>';
+                }
+                ?>
+            </tbody>
+        </table>
 
-        <!-- Event Table -->
-        <div id="eventTable">
-            <?php include 'fetch_events.php'; ?>
-        </div>
-
-        
     </div>
 
     <script>
         $(document).ready(function() {
-            function fetchEvents(page = 1, search = '') {
-                $.ajax({
-                    url: "fetch_events.php",
-                    type: "GET",
-                    data: { page: page, search: search },
-                    success: function(data) {
-                        $("#eventTable").html(data);
-                    }
-                });
-            }
-
-            // Search feature
-            $("#search").on("keyup", function() {
-                let search = $(this).val();
-                fetchEvents(1, search);
-            });
-
-            // Handle pagination click
-            $(document).on("click", ".pagination a", function(e) {
-                e.preventDefault();
-                let page = $(this).attr("data-page");
-                let search = $("#search").val();
-                fetchEvents(page, search);
-            });
-
-            fetchEvents();
+            // Automatically hide the error message after 5 seconds
+            setTimeout(function() {
+                $('#error-message').fadeOut();
+            }, 1000); // Adjust the time as needed (5000ms = 5 seconds)
         });
     </script>
 
