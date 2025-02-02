@@ -2,6 +2,24 @@
 
 This is a simple event management system built using raw PHP and MySQL.
 
+# Live Website Link
+
+Live Link: https://tanjimul.xyz/
+
+# Default Credentials
+
+After setting up the database, you can use the following default credentials to log in:
+
+### Admin Account
+
+- **Email:** `admin@admin.com`
+- **Password:** `123`
+
+### User Account
+
+- **Email:** `user@gmail.com`
+- **Password:** `12345`
+
 ## Features
 
 - User authentication (login/logout)
@@ -57,17 +75,3 @@ You have to define the base url here. In my case I have used Laragon and my I se
  define('BASE_URL', 'http://project.test/');
 ?>
 ```
-
-# Default Credentials
-
-After setting up the database, you can use the following default credentials to log in:
-
-### Admin Account
-
-- **Email:** `admin@admin.com`
-- **Password:** `123`
-
-### User Account
-
-- **Email:** `user@gmail.com`
-- **Password:** `12345`
